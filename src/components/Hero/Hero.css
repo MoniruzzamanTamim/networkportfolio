@@ -1,0 +1,525 @@
+.hero-section {
+  background: #050816;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 800px;
+  padding: 120px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 64px;
+  position: relative;
+  z-index: 2;
+}
+
+/* =========================
+   HERO CONTENT
+========================= */
+
+.hero-content {
+  width: 100%;
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+  gap: 20px;
+
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 8px 16px;
+
+  border: 1px solid rgba(34, 211, 238, 0.2);
+  border-radius: 999px;
+
+  background: rgba(34, 211, 238, 0.08);
+
+  color: #22d3ee;
+
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+
+  background: #22c55e;
+  border-radius: 50%;
+
+  box-shadow: 0 0 10px #22c55e;
+
+  animation: pulse 2s infinite;
+}
+
+.hero-title {
+  margin: 0;
+
+  font-size: 42px;
+  line-height: 1.15;
+
+  font-weight: 700;
+  letter-spacing: -1.5px;
+
+  color: #fff;
+}
+
+.hero-subtitle {
+  margin: 0;
+
+  font-size: 21px;
+  line-height: 32px;
+
+  font-weight: 600;
+
+  color: #cbd5e1;
+}
+
+.hero-subtitle span {
+  color: #22d3ee;
+}
+
+.hero-description {
+  max-width: 600px;
+
+  margin: 0;
+
+  font-size: 18px;
+  line-height: 32px;
+
+  color: #94a3b8;
+}
+
+/* =========================
+   SKILLS
+========================= */
+
+.hero-skills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  gap: 8px;
+
+  margin-top: 4px;
+}
+
+.hero-skills span {
+  padding: 7px 12px;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+
+  background: rgba(255, 255, 255, 0.04);
+
+  color: #cbd5e1;
+
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.hero-actions {
+  display: flex;
+  flex-direction: column;
+
+  gap: 16px;
+
+  width: 100%;
+  margin-top: 20px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 15px 30px;
+
+  border-radius: 12px;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  color: #050816;
+
+  background: linear-gradient(
+    135deg,
+    #22d3ee,
+    #3b82f6
+  );
+
+  border: 2px solid #22d3ee;
+}
+
+.btn-primary:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 15px 40px rgba(34, 211, 238, 0.25);
+}
+
+.btn-secondary {
+  color: #22d3ee;
+
+  background: transparent;
+
+  border: 2px solid #22d3ee;
+}
+
+.btn-secondary:hover {
+  background: #22d3ee;
+  color: #050816;
+
+  transform: translateY(-4px);
+}
+
+/* =========================
+   HERO VISUAL
+========================= */
+
+.hero-visual {
+  position: relative;
+
+  width: 100%;
+  max-width: 500px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  animation: fadeUp 0.8s ease forwards;
+
+  animation-delay: 0.2s;
+  opacity: 0;
+}
+
+.hero-glow {
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(34, 211, 238, 0.25),
+      rgba(59, 130, 246, 0.15),
+      transparent 70%
+    );
+
+  filter: blur(45px);
+
+  transform: scale(1.2);
+}
+
+/* =========================
+   IMAGE
+========================= */
+
+.hero-image-wrapper {
+  position: relative;
+
+  z-index: 2;
+}
+
+.hero-image {
+  position: relative;
+
+  display: block;
+
+  width: 100%;
+  max-width: 440px;
+
+  height: auto;
+
+  border-radius: 24px;
+
+  border: 2px solid #22d3ee;
+
+  object-fit: cover;
+
+  box-shadow:
+    0 25px 60px rgba(34, 211, 238, 0.25);
+
+  transition: transform 0.5s ease;
+}
+
+.hero-image:hover {
+  transform: scale(1.02);
+}
+
+/* =========================
+   EXPERIENCE CARD
+========================= */
+
+.experience-card {
+  position: absolute;
+
+  right: -25px;
+  top: -25px;
+
+  padding: 12px 16px;
+
+  display: flex;
+  flex-direction: column;
+
+  border-radius: 12px;
+
+  background: rgba(11, 18, 32, 0.9);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  backdrop-filter: blur(12px);
+
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.experience-card span {
+  color: #94a3b8;
+  font-size: 11px;
+}
+
+.experience-card strong {
+  margin-top: 3px;
+
+  color: #fff;
+
+  font-size: 18px;
+}
+
+/* =========================
+   NETWORK STATUS
+========================= */
+
+.network-card {
+  position: absolute;
+
+  left: -25px;
+  bottom: -25px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 12px 16px;
+
+  border-radius: 12px;
+
+  background: rgba(11, 18, 32, 0.9);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  backdrop-filter: blur(12px);
+
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.network-card small {
+  display: block;
+
+  color: #94a3b8;
+
+  font-size: 11px;
+}
+
+.network-card strong {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #22c55e;
+
+  font-size: 12px;
+}
+
+.network-icon {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 8px;
+
+  background: rgba(34, 197, 94, 0.1);
+}
+
+.network-icon span {
+  width: 9px;
+  height: 9px;
+
+  background: #22c55e;
+
+  border-radius: 50%;
+
+  box-shadow: 0 0 12px #22c55e;
+
+  animation: pulse 2s infinite;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (min-width: 576px) {
+  .hero-actions {
+    flex-direction: row;
+    width: auto;
+  }
+
+  .btn {
+    width: auto;
+  }
+}
+
+/* =========================
+   DESKTOP
+========================= */
+
+@media (min-width: 992px) {
+  .hero-container {
+    flex-direction: row;
+    justify-content: space-between;
+
+    gap: 80px;
+  }
+
+  .hero-content {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .hero-title {
+    font-size: 64px;
+    line-height: 72px;
+  }
+
+  .hero-description {
+    font-size: 20px;
+    line-height: 36px;
+  }
+
+  .hero-skills {
+    justify-content: flex-start;
+  }
+
+  .hero-actions {
+    justify-content: flex-start;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 575px) {
+  .hero-section {
+    padding: 100px 18px 80px;
+  }
+
+  .hero-title {
+    font-size: clamp(30px, 9vw, 36px);
+    line-height: 1.15;
+  }
+
+  .hero-subtitle {
+    font-size: 18px;
+  }
+
+  .hero-description {
+    font-size: 16px;
+    line-height: 28px;
+  }
+
+  .experience-card {
+    right: -5px;
+    top: -15px;
+  }
+
+  .network-card {
+    left: -5px;
+    bottom: -15px;
+  }
+
+  .hero-badge {
+    font-size: 12px;
+    line-height: 1.4;
+    justify-content: center;
+  }
+
+  .hero-image {
+    border-radius: 18px;
+  }
+
+  .experience-card,
+  .network-card {
+    padding: 9px 10px;
+  }
+
+  .network-card strong {
+    font-size: 11px;
+  }
+}

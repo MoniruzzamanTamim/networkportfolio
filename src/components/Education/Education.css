@@ -1,0 +1,428 @@
+.edu-section {
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 96px 24px;
+
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(34, 211, 238, 0.08),
+      transparent 45%
+    ),
+    #050816;
+
+  color: #ffffff;
+
+  overflow: hidden;
+}
+
+.edu-container {
+  width: 100%;
+  max-width: 1200px;
+
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 64px;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.edu-header {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  text-align: center;
+
+  gap: 16px;
+}
+
+.edu-label {
+  color: #22d3ee;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  letter-spacing: 3px;
+}
+
+.edu-title {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 48px;
+
+  line-height: 56px;
+
+  font-weight: 700;
+
+  letter-spacing: -1px;
+}
+
+.edu-desc {
+  max-width: 600px;
+
+  margin: 0;
+
+  color: #94a3b8;
+
+  font-size: 18px;
+
+  line-height: 28px;
+}
+
+/* =========================
+   GRID
+========================= */
+
+.edu-grid {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(320px, 1fr)
+    );
+
+  gap: 32px;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.edu-card {
+  position: relative;
+
+  padding: 40px 32px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 16px;
+
+  min-height: 220px;
+
+  box-sizing: border-box;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 16px;
+
+  overflow: hidden;
+
+  background: rgba(15, 23, 42, 0.65);
+
+  backdrop-filter: blur(10px);
+
+  opacity: 0;
+
+  transform: translateY(24px);
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Card background */
+
+.edu-card::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(34, 211, 238, 0.06),
+      transparent 60%
+    );
+
+  opacity: 0.5;
+
+  z-index: -1;
+
+  transition: opacity 0.3s ease;
+}
+
+/* Top gradient */
+
+.edu-card::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 4px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #22d3ee,
+      #3b82f6,
+      #8b5cf6
+    );
+
+  opacity: 0;
+
+  transition: opacity 0.3s ease;
+}
+
+.edu-card:hover {
+  transform: translateY(-8px);
+
+  border-color: #22d3ee;
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.edu-card:hover::before {
+  opacity: 1;
+}
+
+.edu-card:hover::after {
+  opacity: 1;
+}
+
+/* =========================
+   BADGE
+========================= */
+
+.edu-badge {
+  align-self: flex-start;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 8px 16px;
+
+  border-radius: 8px;
+
+  background: #22d3ee;
+
+  color: #050816;
+
+  border: 1px solid #22d3ee;
+
+  font-size: 12px;
+
+  line-height: 16px;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1px;
+}
+
+.training-badge {
+  background: rgba(255, 255, 255, 0.04);
+
+  color: #cbd5e1;
+
+  border-color: #475569;
+}
+
+.edu-card:hover .training-badge {
+  color: #22d3ee;
+
+  border-color: #22d3ee;
+}
+
+/* =========================
+   SVG
+========================= */
+
+.edu-svg-icon {
+  stroke: currentColor;
+
+  stroke-width: 2;
+
+  stroke-linecap: round;
+
+  stroke-linejoin: round;
+
+  flex-shrink: 0;
+}
+
+/* =========================
+   TITLE
+========================= */
+
+.edu-card-title {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 24px;
+
+  line-height: 32px;
+
+  font-weight: 600;
+}
+
+/* =========================
+   ORGANIZATION
+========================= */
+
+.edu-card-org {
+  margin: 0;
+
+  color: #94a3b8;
+
+  font-size: 16px;
+
+  line-height: 24px;
+}
+
+/* =========================
+   META
+========================= */
+
+.edu-card-meta {
+  margin: auto 0 0;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  color: #22d3ee;
+
+  font-size: 14px;
+
+  line-height: 20px;
+
+  font-weight: 600;
+}
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes eduFadeUp {
+  from {
+    opacity: 0;
+
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+.edu-animate {
+  animation:
+    eduFadeUp
+    0.6s
+    cubic-bezier(0.4, 0, 0.2, 1)
+    forwards;
+}
+
+/* =========================
+   DESKTOP GRID
+========================= */
+
+@media (min-width: 1024px) {
+  .edu-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .degree-card:nth-child(1) {
+    grid-column: span 1;
+  }
+
+  .degree-card:nth-child(2) {
+    grid-column: span 1;
+  }
+
+  .training-card {
+    grid-column: span 1;
+  }
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 767px) {
+  .edu-section {
+    padding: 64px 16px;
+  }
+
+  .edu-title {
+    font-size: 32px;
+
+    line-height: 40px;
+  }
+
+  .edu-desc {
+    font-size: 16px;
+
+    line-height: 24px;
+  }
+
+  .edu-card {
+    padding: 32px 24px;
+
+    min-height: 210px;
+  }
+
+  .edu-card-title {
+    font-size: 20px;
+
+    line-height: 28px;
+  }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 480px) {
+  .edu-section {
+    padding: 60px 14px;
+  }
+
+  .edu-grid {
+    grid-template-columns: minmax(0, 1fr);
+
+    gap: 20px;
+  }
+
+  .edu-card {
+    padding: 28px 20px;
+  }
+
+  .edu-card-title {
+    font-size: 19px;
+  }
+}

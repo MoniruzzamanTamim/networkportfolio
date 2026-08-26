@@ -1,0 +1,267 @@
+/* কন্টেইনার স্টাইল */
+.gallery-container {
+  min-height: 100vh;
+  background-color: #0f172a;
+  color: #f8fafc;
+  padding: 48px 24px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* হেডার */
+.gallery-header {
+  max-width: 1200px;
+  margin: 0 auto 48px auto;
+  text-align: center;
+}
+
+.gallery-header h1 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+.gallery-header p {
+  color: #94a3b8;
+  font-size: 1.125rem;
+}
+
+/* প্রজেক্টস গ্রিড (Responsive Grid) */
+.projects-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px;
+}
+
+/* প্রজেক্ট কার্ড */
+.project-card {
+  background-color: rgba(30, 41, 59, 0.9);
+  border: 1px solid rgba(51, 65, 85, 0.6);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(59, 130, 246, 0.5);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+}
+
+/* ছবি ও ক্যাটাগরি */
+.card-image-wrapper {
+  position: relative;
+  height: 200px;
+  background-color: #020617;
+  overflow: hidden;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.85;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.project-card:hover .card-image {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+.category-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background-color: rgba(37, 99, 235, 0.9);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* কার্ড বডি */
+.card-body {
+  padding: 24px;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 10px;
+  line-height: 1.4;
+  transition: color 0.3s ease;
+}
+
+.project-card:hover .card-title {
+  color: #60a5fa;
+}
+
+.card-description {
+  color: #94a3b8;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+/* হাইলাইটস */
+.highlights-container {
+  border-top: 1px solid rgba(51, 65, 85, 0.5);
+  padding-top: 16px;
+  margin-top: 16px;
+}
+
+.highlight-item {
+  font-size: 0.75rem;
+  margin-bottom: 8px;
+}
+
+.highlight-label {
+  font-weight: 600;
+  color: #60a5fa;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.highlight-text {
+  color: #94a3b8;
+  display: block;
+  padding-left: 12px;
+}
+
+/* ফুটার ও বাটন */
+.card-footer {
+  padding: 0 24px 24px 24px;
+}
+
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  background-color: #2563eb;
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  box-sizing: border-box;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.download-btn:hover {
+  background-color: #1d4ed8;
+}
+
+.download-btn:active {
+  transform: scale(0.98);
+}
+
+.download-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.card-image-wrapper {
+  cursor: pointer;
+}
+
+.pt-image-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  box-sizing: border-box;
+  background: rgba(2, 6, 23, 0.92);
+}
+
+.pt-image-modal-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min(1200px, 100%);
+  height: min(85vh, 900px);
+}
+
+.pt-image-modal-content img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transform-origin: center;
+  transition: transform 0.2s ease;
+}
+
+.pt-image-modal-frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.pt-image-toolbar {
+  position: absolute;
+  z-index: 2;
+  top: 12px;
+  left: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  background: rgba(2, 6, 23, 0.8);
+}
+
+.pt-image-toolbar button {
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 6px;
+  background: #2563eb;
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.pt-image-toolbar span {
+  min-width: 44px;
+  color: #fff;
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+.pt-image-modal-close {
+  position: absolute;
+  z-index: 1;
+  top: 12px;
+  right: 12px;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  background: rgba(2, 6, 23, 0.8);
+  color: #fff;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+}
