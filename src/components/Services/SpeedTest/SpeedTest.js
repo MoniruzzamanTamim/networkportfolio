@@ -66,7 +66,7 @@ function SpeedTest() {
       loadedBytes += value.length;
       const durationSeconds = (performance.now() - startTime) / 1000;
       const speedMbps = ((loadedBytes * 8) / durationSeconds / (1024 * 1024)).toFixed(1);
-
+    // eslint-disable-next-line no-loop-func
       setData((prev) => ({
         ...prev,
         download: speedMbps,
