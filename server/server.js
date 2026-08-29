@@ -2,7 +2,7 @@
 const express = require('express');
 const cors = require('cors');
 const { exec } = require('child_process');
-const axios = require('axios'); // npm install axios chaliye nin
+const axios = require('axios');
 
 const app = express();
 app.use(cors());
@@ -11,13 +11,10 @@ app.use(express.json());
 // ==========================================
 // 1. ISP INFORMATION API ROUTE
 // ==========================================
-// server/server.js
 app.get('/api/ip-info', async (req, res) => {
   try {
-    // 1. Client-er IP read kora
     let clientIp = req.headers['x-forwarded-for']?.split(',')[0] || req.socket.remoteAddress;
 
-    // 2. Localhost-e thakle API straight user-er real public IP auto-detect korbe
     let apiUrl = 'http://ip-api.com/json/';
     if (clientIp && clientIp !== '::1' && clientIp !== '127.0.0.1' && !clientIp.includes('127.0.0.1')) {
       apiUrl = `http://ip-api.com/json/${clientIp}`;
@@ -30,6 +27,7 @@ app.get('/api/ip-info', async (req, res) => {
     res.status(500).json({ status: 'fail', error: 'IP Information fetch korte somoshya hochhe' });
   }
 });
+
 // ==========================================
 // 2. TRACEROUTE API ROUTE
 // ==========================================
@@ -91,8 +89,12 @@ app.get('/api/ping-stream', (req, res) => {
 });
 
 // ==========================================
-// SERVER LISTEN
+// SERVER LISTEN & EXPORT FOR VERCEL
 // ==========================================
-app.listen(5000, () => {
-  console.log('Backend server running on http://localhost:5000');
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Backend server running on port ${PORT}`);
 });
+
+// Vercel-এর জন্য আবশ্যক Exports
+module.exports = app;
