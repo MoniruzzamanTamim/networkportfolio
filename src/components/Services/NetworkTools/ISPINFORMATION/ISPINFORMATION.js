@@ -11,9 +11,29 @@ const ISPINFORMATION = () => {
     useEffect(() => {
         const fetchIpInfo = async () => {
             try {
-                const response = await axios.get(' https://networkportfolio-backend.onrender.com/api/ip-info');
-                if (response.data && response.data.status !== 'fail') {
-                    setIpData(response.data);
+                // 1. Direct ipify theke IPv4 ebong IPv6 fetch kora (Jate browser/network e IPv6 thakle shathe shathe dhora pore)
+                const ipv4Res = await axios.get('https://api.ipify.org?format=json').catch(() => null);
+                const ipv6Res = await axios.get('https://api64.ipify.org?format=json').catch(() => null);
+
+                // 2. Apnar Render backend theke ISP ebong location details ana
+                const backendRes = await axios.get('https://networkportfolio-backend.onrender.com/api/ip-info');
+
+                if (backendRes.data && backendRes.data.status !== 'fail') {
+                    // Check if IPv6 is actually different from IPv4 (since api64 falls back to IPv4 if no IPv6 exists)
+                    const v4 = ipv4Res?.data?.ip || backendRes.data.query;
+                    const v6 = ipv6Res?.data?.ip;
+                    const validIPv6 = (v6 && v6 !== v4 && v6.includes(':')) ? v6 : "Not detected";
+
+                    setIpData({
+                        query: v4,
+                        ipv6: validIPv6,
+                        isp: backendRes.data.isp,
+                        city: backendRes.data.city,
+                        regionName: backendRes.data.regionName,
+                        country: backendRes.data.country,
+                        lat: backendRes.data.lat,
+                        lon: backendRes.data.lon
+                    });
                 } else {
                     setError("IP details paoya jayni.");
                 }
@@ -31,8 +51,8 @@ const ISPINFORMATION = () => {
     if (loading) return <div style={{ padding: '30px', color: '#fff', textAlign: 'center' }}>Loading IP Details...</div>;
     if (error) return <div style={{ padding: '30px', color: '#ff6b6b', textAlign: 'center' }}>{error}</div>;
 
-    const lat = ipData.lat || 23.8103;
-    const lon = ipData.lon || 90.4125;
+    const lat = ipData?.lat || 23.8103;
+    const lon = ipData?.lon || 90.4125;
     const mapUrl = `https://maps.google.com/maps?q=${lat},${lon}&z=10&output=embed`;
 
     return (
@@ -46,11 +66,11 @@ const ISPINFORMATION = () => {
                     <div className="isp-card">
                         <div className="isp-row">
                             <span>IPv4: <span className="isp-help-icon">?</span></span>
-                            <span className="isp-address">{ipData.query}</span>
+                            <span className="isp-address">{ipData?.query}</span>
                         </div>
                         <div className="isp-row isp-border-top">
                             <span>IPv6: <span className="isp-help-icon">?</span></span>
-                            <span style={{ fontWeight: 'bold' }}>Not detected</span>
+                            <span style={{ fontWeight: 'bold' }}>{ipData?.ipv6}</span>
                         </div>
                     </div>
                 </div>
@@ -60,10 +80,10 @@ const ISPINFORMATION = () => {
                     <div className="isp-info-box">
                         <p className="isp-section-title">My IP Information:</p>
                         <div className="isp-card">
-                            <p style={{ margin: '4px 0' }}><strong>ISP:</strong> {ipData.isp}</p>
-                            <p style={{ margin: '4px 0' }}><strong>City:</strong> {ipData.city}</p>
-                            <p style={{ margin: '4px 0' }}><strong>Region:</strong> {ipData.regionName}</p>
-                            <p style={{ margin: '4px 0' }}><strong>Country:</strong> {ipData.country}</p>
+                            <p style={{ margin: '4px 0' }}><strong>ISP:</strong> {ipData?.isp}</p>
+                            <p style={{ margin: '4px 0' }}><strong>City:</strong> {ipData?.city}</p>
+                            <p style={{ margin: '4px 0' }}><strong>Region:</strong> {ipData?.regionName}</p>
+                            <p style={{ margin: '4px 0' }}><strong>Country:</strong> {ipData?.country}</p>
                         </div>
                     </div>
 
