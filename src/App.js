@@ -7,7 +7,7 @@ import Experience from "./components/Experience/Experience";
 import Education from "./components/Education/Education";
 import Contact from "./components/Contact/Contact";
 import Services from "./components/Services/Services";
-import ISPINFORMATION from "./components/ISPINFORMATION/ISPINFORMATION";
+
 
 
 function App() {
@@ -36,9 +36,7 @@ function App() {
         <section id="contact">
           <Contact/>
         </section>
-        <section id="ipinformation">
-          <ISPINFORMATION/>
-        </section>
+       
       
       </Layout>
     </>

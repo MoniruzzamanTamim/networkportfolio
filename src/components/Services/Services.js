@@ -3,6 +3,7 @@ import Project from './Project/Project';
 import SubnetCalculator from './NetworkTools/SubnetCalculator/SubnetCalculator';
 import SpeedTest from './SpeedTest/SpeedTest';
 import './NetworkTools/NetworkTools.css';
+import ISPINFORMATION from './NetworkTools/ISPINFORMATION/ISPINFORMATION';
 
 const Services = () => {
   // Active tab state: 'services' | 'subnet' | 'bdix'
@@ -42,6 +43,7 @@ const Services = () => {
       <div className="tab-content-area">
         {activeTab === 'services' && <Project />}
         {activeTab === 'subnet' && <SubnetCalculator />}
+        {activeTab === 'bdix' && <ISPINFORMATION />}
         {activeTab === 'speedtest' && <SpeedTest/>}
       </div>
     </div>

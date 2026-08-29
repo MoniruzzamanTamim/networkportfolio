@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import SubnetCalculator from './SubnetCalculator/SubnetCalculator';
 import './NetworkTools.css';
+import ISPINFORMATION from './ISPINFORMATION/ISPINFORMATION';
 
 const NetworkTools = () => {
   // Active tab state: 'subnet' | 'bdix'
@@ -20,13 +21,14 @@ const NetworkTools = () => {
           className={`tool-tab-btn ${activeTab === 'bdix' ? 'active' : ''}`}
           onClick={() => setActiveTab('bdix')}
         >
-          BDIX & Speed Test
+          ISP INFO
         </button>
       </div>
 
       {/* Tab Content Display */}
       <div className="tab-content-area">
         {activeTab === 'subnet' && <SubnetCalculator />}
+        {activeTab === 'subnet' && <ISPINFORMATION />}
        
       </div>
     </div>
