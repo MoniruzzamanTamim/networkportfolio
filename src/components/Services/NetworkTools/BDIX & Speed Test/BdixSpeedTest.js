@@ -20,44 +20,7 @@ const BdixSpeedTest = () => {
   const [runningSpeed, setRunningSpeed] = useState({ download: '0.00', status: 'Idle' });
   const [bdixSpeed, setBdixSpeed] = useState({ download: '0.00', status: 'Idle' });
 
-  // 1. Live Continuous Gateway Ping (Server-Sent Events)
-  const handleStartPing = (e) => {
-    e.preventDefault();
-    setIsPinging(true);
-    setPingLogs([]);
-    setPingStats(null);
-    latenciesRef.current = [];
-
-    const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
-    const eventSource = new EventSource(`${API_URL}/api/ping-stream?target=${gatewayIp}`);
-    eventSourceRef.current = eventSource;
-
-    let packetCount = 0;
-
-    eventSource.onmessage = (event) => {
-      const data = JSON.parse(event.data);
-      const line = data.line;
-
-      // time ms নিষ্কাশন
-      const timeMatch = line.match(/time[=<](\d+)ms/i);
-      if (timeMatch) {
-        latenciesRef.current.push(parseInt(timeMatch[1]));
-      }
-
-      setPingLogs((prev) => [...prev, line]);
-      packetCount++;
-
-      // ১০০০ প্যাকেট/পিং হলে স্বয়ংক্রিয়ভাবে বন্ধ হবে
-      if (packetCount >= 100) {
-        handleStopPing();
-      }
-    };
-
-    eventSource.onerror = () => {
-      handleStopPing();
-    };
-  };
-
+  // 1. Stop Ping Function (উপরে রাখা হয়েছে যেন handleStartPing এটিকে খুঁজে পায়)
   const handleStopPing = () => {
     if (eventSourceRef.current) {
       eventSourceRef.current.close();
@@ -81,7 +44,49 @@ const BdixSpeedTest = () => {
     }
   };
 
-  // 2. Real Traceroute Runner
+  // 2. Live Continuous Gateway Ping (Server-Sent Events)
+  const handleStartPing = (e) => {
+    e.preventDefault();
+    setIsPinging(true);
+    setPingLogs([]);
+    setPingStats(null);
+    latenciesRef.current = [];
+
+    const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+    const eventSource = new EventSource(`${API_URL}/api/ping-stream?target=${gatewayIp}`);
+    eventSourceRef.current = eventSource;
+
+    // ব্যাকএন্ড থেকে স্টিম সফলভাবে শেষ হলে এই ইভেন্টটি ট্রিগার হবে
+    eventSource.addEventListener('end', () => {
+      handleStopPing();
+    });
+
+    // ডাটা মেসেজ রিসিভ করা
+    eventSource.onmessage = (event) => {
+      try {
+        const data = JSON.parse(event.data);
+        const line = data.line;
+
+        // Response latency time (ms) বের করা
+        const timeMatch = line.match(/time[=<](\d+)\s*ms/i) || line.match(/time[=<](\d+)/i);
+        if (timeMatch) {
+          latenciesRef.current.push(parseInt(timeMatch[1], 10));
+        }
+
+        setPingLogs((prev) => [...prev, line]);
+      } catch (err) {
+        console.error('Error parsing SSE ping data:', err);
+      }
+    };
+
+    // কোনো নেটওয়ার্ক এরর বা কানেকশন ড্রপ করলে সকেট বন্ধ করা
+    eventSource.onerror = (err) => {
+      console.error('EventSource failed:', err);
+      handleStopPing();
+    };
+  };
+
+  // 3. Real Traceroute Runner
   const handleTraceroute = async (e) => {
     e.preventDefault();
     setIsTracing(true);
@@ -102,7 +107,7 @@ const BdixSpeedTest = () => {
     }
   };
 
-  // 3. Live Bandwidth Speed Test
+  // 4. Live Bandwidth Speed Test
   const runBandwidthTest = () => {
     setRunningSpeed({ download: 'Testing...', status: 'Running' });
     const startTime = performance.now();
@@ -122,7 +127,7 @@ const BdixSpeedTest = () => {
     };
   };
 
-  // 4. BDIX Dedicated Bandwidth Speed Test
+  // 5. BDIX Dedicated Bandwidth Speed Test
   const runBdixSpeedTest = () => {
     setBdixSpeed({ download: 'Testing BDIX...', status: 'Running' });
     const startTime = performance.now();
@@ -198,7 +203,7 @@ const BdixSpeedTest = () => {
             {/* Ping Result Summary Stats */}
             {pingStats && (
               <div className="diag-result" style={{ marginTop: '12px' }}>
-                <p>Total Pings Sent: <strong>{pingStats.totalSent} / 100</strong></p>
+                <p>Total Pings Sent: <strong>{pingStats.totalSent}</strong></p>
                 <p>Min Latency: <strong style={{ color: '#28a745' }}>{pingStats.min}</strong></p>
                 <p>Max Latency: <strong style={{ color: '#dc3545' }}>{pingStats.max}</strong></p>
                 <p>Avg Latency: <strong style={{ color: '#007bff' }}>{pingStats.avg}</strong></p>
