@@ -11,7 +11,7 @@ const ISPINFORMATION = () => {
     useEffect(() => {
         const fetchIpInfo = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/ip-info');
+                const response = await axios.get(' https://networkportfolio-backend.onrender.com/api/ip-info');
                 if (response.data && response.data.status !== 'fail') {
                     setIpData(response.data);
                 } else {

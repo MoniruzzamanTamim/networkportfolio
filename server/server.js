@@ -119,6 +119,62 @@ app.get('/api/ping-stream', async (req, res) => {
 });
 
 // ==========================================
+// 5. WORLD PING STREAM ROUTE (MULTIPLE SERVERS AT ONCE)
+// ==========================================
+const worldServers = [
+  { id: 1, location: 'Dhaka, BD', region: 'Asia', host: '8.8.8.8', provider: 'Google / X-Press' },
+  { id: 2, location: 'Barishal, BD', region: 'Asia', host: '103.102.27.1', provider: 'Smart Network' },
+  { id: 3, location: 'Chittagong, BD', region: 'Asia', host: '103.108.144.1', provider: 'FCN Network' },
+  { id: 4, location: 'Mumbai, IN', region: 'Asia', host: '139.59.38.16', provider: 'Linode' },
+  { id: 5, location: 'Singapore, SG', region: 'Asia', host: '139.162.24.24', provider: 'Linode' },
+  { id: 6, location: 'Tokyo, JP', region: 'Asia', host: '139.162.112.56', provider: 'VULTR' },
+  { id: 7, location: 'Frankfurt, DE', region: 'Europe', host: '139.162.130.8', provider: 'EDIS Global' },
+  { id: 8, location: 'London, GB', region: 'Europe', host: '178.79.140.1', provider: 'Linode' },
+  { id: 9, location: 'New York, US', region: 'North America', host: '173.255.194.1', provider: 'Linode' },
+  { id: 10, location: 'Sydney, AU', region: 'Oceania', host: '139.162.110.1', provider: 'VULTR' }
+];
+
+app.get('/api/world-ping', async (req, res) => {
+  res.setHeader('Content-Type', 'text/event-stream');
+  res.setHeader('Cache-Control', 'no-cache');
+  res.setHeader('Connection', 'keep-alive');
+
+  // Prothome sob server-er ekta initial list pathano jate UI-te table sajiye fela jay
+  const initialResults = worldServers.map(s => ({
+    ...s,
+    ping: '...',
+    status: 'testing'
+  }));
+  res.write(`data: ${JSON.stringify({ type: 'init', data: initialResults })}\n\n`);
+
+  // Ekta ekta kore ba parallel probe kore live update pathano
+  for (const server of worldServers) {
+    try {
+      const startTime = Date.now();
+      const result = await ping.promise.probe(server.host, { timeout: 2 });
+      const latency = result.alive ? Math.round(result.time) : null;
+
+      const updateData = {
+        id: server.id,
+        ping: latency !== null ? `${latency} ms` : 'error',
+        status: latency !== null ? (latency < 100 ? 'good' : latency < 250 ? 'orange' : 'red') : 'error',
+        rawPing: latency !== null ? latency : 9999 // Sorting-er jonno
+      };
+
+      res.write(`data: ${JSON.stringify({ type: 'update', data: updateData })}\n\n`);
+    } catch (err) {
+      res.write(`data: ${JSON.stringify({ 
+        type: 'update', 
+        data: { id: server.id, ping: 'error', status: 'error', rawPing: 9999 } 
+      })}\n\n`);
+    }
+  }
+
+  res.write('event: end\ndata: end\n\n');
+  res.end();
+});
+
+// ==========================================
 // SERVER LISTEN
 // ==========================================
 const PORT = process.env.PORT || 5000;

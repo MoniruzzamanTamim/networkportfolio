@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import SubnetCalculator from './SubnetCalculator/SubnetCalculator';
-import BdixSpeedTest from './BDIX & Speed Test/BdixSpeedTest';
 import './NetworkTools.css';
 
 const NetworkTools = () => {
@@ -28,7 +27,7 @@ const NetworkTools = () => {
       {/* Tab Content Display */}
       <div className="tab-content-area">
         {activeTab === 'subnet' && <SubnetCalculator />}
-        {activeTab === 'bdix' && <BdixSpeedTest />}
+       
       </div>
     </div>
   );

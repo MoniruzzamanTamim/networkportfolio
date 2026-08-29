@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Project from './Project/Project';
 import SubnetCalculator from './NetworkTools/SubnetCalculator/SubnetCalculator';
-import BdixSpeedTest from './NetworkTools/BDIX & Speed Test/BdixSpeedTest';
 import SpeedTest from './SpeedTest/SpeedTest';
 import './NetworkTools/NetworkTools.css';
 
@@ -43,7 +42,6 @@ const Services = () => {
       <div className="tab-content-area">
         {activeTab === 'services' && <Project />}
         {activeTab === 'subnet' && <SubnetCalculator />}
-        {activeTab === 'bdix' && <BdixSpeedTest />}
         {activeTab === 'speedtest' && <SpeedTest/>}
       </div>
     </div>
