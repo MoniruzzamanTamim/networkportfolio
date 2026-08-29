@@ -7,6 +7,7 @@ import Experience from "./components/Experience/Experience";
 import Education from "./components/Education/Education";
 import Contact from "./components/Contact/Contact";
 import Services from "./components/Services/Services";
+import ISPINFORMATION from "./components/ISPINFORMATION/ISPINFORMATION";
 // import SpeedTest from './components/Services/SpeedTest/SpeedTest';
 // import PacketTracerGallery from "./components/Services/packetTracerProjects/PacketTracerGallery";
 
@@ -35,6 +36,9 @@ function App() {
         </section>
         <section id="contact">
           <Contact/>
+        </section>
+        <section id="ipinformation">
+          <ISPINFORMATION/>
         </section>
       </Layout>
     </>
