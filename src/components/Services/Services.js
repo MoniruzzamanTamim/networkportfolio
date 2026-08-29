@@ -29,7 +29,7 @@ const Services = () => {
           className={`tool-tab-btn ${activeTab === 'bdix' ? 'active' : ''}`}
           onClick={() => setActiveTab('bdix')}
         >
-          BDIX & Speed Test
+          ISP INFO
         </button>
         <button
           className={`tool-tab-btn ${activeTab === 'speedtest' ? 'active' : ''}`}
