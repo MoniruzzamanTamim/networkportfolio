@@ -1,11 +1,32 @@
-// server/server.js
 const express = require('express');
 const cors = require('cors');
 const { exec } = require('child_process');
 const axios = require('axios');
 
 const app = express();
-app.use(cors());
+
+// ==========================================
+// DYNAMIC CORS CONFIGURATION
+// ==========================================
+const allowedOrigins = [
+  'http://localhost:3000',
+  'https://tamimnetwork.vercel.app'
+];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    // Postman or Mobile Request (Where origin is undefined)
+    if (!origin) return callback(null, true);
+    
+    if (allowedOrigins.indexOf(origin) !== -1 || process.env.CLIENT_URL === origin) {
+      return callback(null, true);
+    } else {
+      return callback(null, true); // Local development smooth rakhari jonno allow all
+    }
+  },
+  credentials: true
+}));
+
 app.use(express.json());
 
 // ==========================================
@@ -66,8 +87,11 @@ app.get('/api/traceroute', (req, res) => {
 // 3. REAL-TIME CONTINUOUS PING STREAM API (SSE)
 // ==========================================
 app.get('/api/ping-stream', (req, res) => {
-  const target = req.query.target || '192.168.0.1';
+  const target = req.query.target || '8.8.8.8';
 
+  // Explicit CORS Headers for EventStream / SSE
+  res.setHeader('Access-Control-Allow-Origin', req.headers.origin || '*');
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
   res.setHeader('Content-Type', 'text/event-stream');
   res.setHeader('Cache-Control', 'no-cache');
   res.setHeader('Connection', 'keep-alive');
@@ -89,12 +113,9 @@ app.get('/api/ping-stream', (req, res) => {
 });
 
 // ==========================================
-// SERVER LISTEN & EXPORT FOR VERCEL
+// SERVER LISTEN
 // ==========================================
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`Backend server running on port ${PORT}`);
+  console.log(`Backend server running on http://localhost:${PORT}`);
 });
-
-// Vercel-এর জন্য আবশ্যক Exports
-module.exports = app;
