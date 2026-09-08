@@ -7,6 +7,8 @@ import Experience from "./components/Experience/Experience";
 import Education from "./components/Education/Education";
 import Contact from "./components/Contact/Contact";
 import Services from "./components/Services/Services";
+// import CactiInstallation from "./ISPWork/CactiInstallation/CactiInstallation";
+// import SNMPServer from "./ISPWork/SNMPServer/SNMPServer";
 
 
 
@@ -36,6 +38,7 @@ function App() {
         <section id="contact">
           <Contact/>
         </section>
+       
        
       
       </Layout>

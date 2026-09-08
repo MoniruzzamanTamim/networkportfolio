@@ -1,0 +1,365 @@
+.snmp-page {
+  min-height: 100vh;
+  background: #0b1120;
+  color: #e5e7eb;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.snmp-container {
+  width: min(1100px, 92%);
+  margin: auto;
+}
+
+/* Hero */
+
+.snmp-hero {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #0f172a, #111827);
+  border-bottom: 1px solid #1e293b;
+}
+
+.snmp-badge {
+  display: inline-block;
+  padding: 7px 14px;
+  border-radius: 20px;
+  background: #1e293b;
+  color: #38bdf8;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.snmp-hero h1 {
+  margin: 20px 0 12px;
+  font-size: 48px;
+  color: #ffffff;
+}
+
+.snmp-hero p {
+  max-width: 700px;
+  line-height: 1.8;
+  color: #94a3b8;
+  font-size: 17px;
+}
+
+.snmp-info-grid {
+  margin-top: 35px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.snmp-info-grid div {
+  padding: 20px;
+  background: #111827;
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+}
+
+.snmp-info-grid span,
+.config-card span {
+  display: block;
+  margin-bottom: 7px;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.snmp-info-grid strong,
+.config-card strong {
+  color: #f8fafc;
+}
+
+/* Sections */
+
+.snmp-section {
+  padding: 55px 0;
+  border-bottom: 1px solid #1e293b;
+  position: relative;
+}
+
+.snmp-section h2 {
+  margin-bottom: 20px;
+  color: #ffffff;
+  font-size: 30px;
+}
+
+.snmp-section h3 {
+  margin-top: 30px;
+  margin-bottom: 12px;
+  color: #38bdf8;
+}
+
+.snmp-section p {
+  line-height: 1.8;
+  color: #94a3b8;
+}
+
+.step-number {
+  margin-bottom: 12px;
+  color: #38bdf8;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+/* Code */
+
+.code-wrapper {
+  margin: 18px 0;
+  overflow-x: auto;
+  background: #020617;
+  border: 1px solid #1e293b;
+  border-radius: 10px;
+}
+
+.code-wrapper pre {
+  margin: 0;
+  padding: 20px;
+  min-width: max-content;
+}
+
+.code-wrapper code {
+  color: #e2e8f0;
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* Table */
+
+.snmp-table-wrapper {
+  overflow-x: auto;
+}
+
+.snmp-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #111827;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.snmp-table th,
+.snmp-table td {
+  padding: 16px;
+  text-align: left;
+  border-bottom: 1px solid #1e293b;
+}
+
+.snmp-table th {
+  background: #1e293b;
+  color: #ffffff;
+}
+
+.snmp-table td {
+  color: #cbd5e1;
+}
+
+.snmp-table td:last-child {
+  color: #38bdf8;
+  font-family: monospace;
+}
+
+/* Alert */
+
+.snmp-warning,
+.snmp-success,
+.snmp-security {
+  margin-top: 25px;
+  padding: 20px;
+  border-radius: 12px;
+  background: #111827;
+  border: 1px solid #1e293b;
+}
+
+.snmp-warning strong {
+  color: #fbbf24;
+}
+
+.snmp-success strong {
+  color: #22c55e;
+}
+
+.snmp-security h3 {
+  margin-top: 0;
+}
+
+/* Config Card */
+
+.config-card {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.config-card > div {
+  padding: 22px;
+  background: #111827;
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+}
+
+/* Architecture */
+
+.architecture {
+  text-align: center;
+  padding: 35px;
+  background: #111827;
+  border: 1px solid #1e293b;
+  border-radius: 16px;
+}
+
+.arch-server {
+  display: inline-block;
+  padding: 25px 40px;
+  border: 1px solid #38bdf8;
+  border-radius: 12px;
+  background: #0f172a;
+}
+
+.arch-server h3 {
+  margin: 0 0 8px;
+}
+
+.arch-server p {
+  margin: 5px 0;
+}
+
+.arch-line {
+  margin: 18px;
+  font-size: 25px;
+  color: #38bdf8;
+}
+
+.arch-interfaces {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.arch-interfaces > div {
+  padding: 25px;
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 12px;
+}
+
+.arch-interfaces h4 {
+  margin: 0 0 10px;
+  color: #38bdf8;
+  font-size: 20px;
+}
+
+.arch-interfaces p {
+  font-family: monospace;
+  color: #ffffff;
+}
+
+.arch-interfaces span {
+  color: #64748b;
+}
+
+.monitoring-tools {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.monitoring-tools div {
+  padding: 15px 25px;
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  color: #e2e8f0;
+}
+
+/* Checklist */
+
+.checklist {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.checklist label {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 16px;
+  background: #111827;
+  border: 1px solid #1e293b;
+  border-radius: 10px;
+  color: #cbd5e1;
+}
+
+.checklist input {
+  width: 18px;
+  height: 18px;
+}
+
+/* Footer */
+
+.snmp-footer {
+  padding: 40px 20px;
+  text-align: center;
+  background: #020617;
+}
+
+.snmp-footer p {
+  margin: 0 0 8px;
+  color: #ffffff;
+}
+
+.snmp-footer span {
+  color: #64748b;
+  font-size: 13px;
+}
+
+/* Responsive */
+
+@media (max-width: 800px) {
+
+  .snmp-hero h1 {
+    font-size: 36px;
+  }
+
+  .snmp-info-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .config-card {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .arch-interfaces {
+    grid-template-columns: 1fr;
+  }
+
+  .checklist {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 500px) {
+
+  .snmp-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .config-card {
+    grid-template-columns: 1fr;
+  }
+
+  .snmp-section h2 {
+    font-size: 25px;
+  }
+
+  .snmp-hero {
+    padding: 55px 0;
+  }
+
+  .snmp-hero h1 {
+    font-size: 30px;
+  }
+}
