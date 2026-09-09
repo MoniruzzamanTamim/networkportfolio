@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const axios = require('axios');
+const macLookup = require('mac-lookup');
 require('dotenv').config();
 
 const app = express();
@@ -31,7 +32,7 @@ app.use(cors({
 app.use(express.json());
 
 // ==========================================
-// 2. ISP & IP INFORMATION ROUTE (Dual-Stack / IPv4 & IPv6 Support)
+// 2. ISP & IP INFORMATION ROUTE
 // ==========================================
 app.get('/api/ip-info', async (req, res) => {
   try {
@@ -44,11 +45,10 @@ app.get('/api/ip-info', async (req, res) => {
 
     const response = await axios.get(apiUrl);
     
-    // Response-e IPv4 ebong IPv6-er field clean vabe pathano holo
     res.json({
       status: response.data.status,
-      query: response.data.query,       // IPv4 Address
-      ipv6: "Not detected",           // Jodi network ba client-e IPv6 support thake, ekhane update kora jabe
+      query: response.data.query,
+      ipv6: "Not detected",           
       isp: response.data.isp,
       city: response.data.city,
       regionName: response.data.regionName,
@@ -62,6 +62,35 @@ app.get('/api/ip-info', async (req, res) => {
   }
 });
 
+// ==========================================
+// 3. MAC ADDRESS VENDOR LOOKUP ROUTE (Using macvendorlookup.com API)
+// ==========================================
+app.get('/api/lookup/:mac', async (req, res) => {
+  const macAddress = req.params.mac;
+
+  try {
+    const response = await axios.get(`https://www.macvendorlookup.com/api/v2/${macAddress}`);
+    
+    // API-ti jodi valid vendor pae tahole array ba object akare data dey
+    if (response.data && response.data.length > 0) {
+      res.json({ 
+        success: true, 
+        vendor: response.data[0].company // Company ba Vendor name
+      });
+    } else {
+      res.status(404).json({ 
+        success: false, 
+        message: 'Vendor not found for this MAC address' 
+      });
+    }
+  } catch (error) {
+    console.error("MAC Lookup Error:", error.message);
+    res.status(404).json({ 
+      success: false, 
+      message: 'Vendor not found or invalid MAC address' 
+    });
+  }
+});
 // ==========================================
 // SERVER LISTEN
 // ==========================================
