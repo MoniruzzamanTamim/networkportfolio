@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import Project from './Project/Project';
 import SubnetCalculator from './NetworkTools/SubnetCalculator/SubnetCalculator';
 import SpeedTest from './SpeedTest/SpeedTest';
-import './NetworkTools/NetworkTools.css';
+import './Services.css';
 import ISPINFORMATION from './NetworkTools/ISPINFORMATION/ISPINFORMATION';
+import MacVendor from './NetworkTools/MacVendor/MacVendor';
+
 
 const Services = () => {
-  // Active tab state: 'services' | 'subnet' | 'bdix'
+  // Active tab state: 'services' | 'subnet' | 'ispinfo'
   const [activeTab, setActiveTab] = useState('services');
 
   return (
@@ -26,8 +28,8 @@ const Services = () => {
           Subnet Calculator
         </button>
         <button
-          className={`tool-tab-btn ${activeTab === 'bdix' ? 'active' : ''}`}
-          onClick={() => setActiveTab('bdix')}
+          className={`tool-tab-btn ${activeTab === 'ispinfo' ? 'active' : ''}`}
+          onClick={() => setActiveTab('ispinfo')}
         >
           ISP INFO
         </button>
@@ -37,13 +39,21 @@ const Services = () => {
         >
           Speed Test
         </button>
+        
+        <button
+          className={`tool-tab-btn ${activeTab === 'MacVendor' ? 'active' : ''}`}
+          onClick={() => setActiveTab('MacVendor')}
+        >
+          MAC Vendor Lookup
+        </button>
       </div>
 
       {/* Tab Content Display */}
       <div className="tab-content-area">
         {activeTab === 'services' && <Project />}
         {activeTab === 'subnet' && <SubnetCalculator />}
-        {activeTab === 'bdix' && <ISPINFORMATION />}
+        {activeTab === 'ispinfo' && <ISPINFORMATION />}
+        {activeTab === 'MacVendor' && <MacVendor/>}
         {activeTab === 'speedtest' && <SpeedTest/>}
       </div>
     </div>

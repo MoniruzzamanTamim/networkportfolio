@@ -1,0 +1,81 @@
+.mac-vendor-container {
+  max-width: 500px;
+  margin: 50px auto;
+  background: #1e1e1e;
+  padding: 30px;
+  border-radius: 10px;
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.mac-vendor-container h2 {
+  margin-bottom: 20px;
+  font-size: 22px;
+  color: #e0e0e0;
+}
+
+.mac-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.mac-input {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 16px;
+  border: 1px solid #444;
+  background: #2d2d2d;
+  color: #fff;
+  border-radius: 6px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.mac-input:focus {
+  border-color: #4CAF50;
+}
+
+.mac-button {
+  padding: 12px;
+  font-size: 16px;
+  background: #00a8e8;
+  color: #0b1120;
+  border: 1px solid #00a8e8;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 0 16px rgba(0, 168, 232, 0.35);
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.mac-button:hover:not(:disabled) {
+  background: #20b9f0;
+  box-shadow: 0 0 20px rgba(0, 168, 232, 0.55);
+}
+
+.mac-button:disabled {
+  background-color: #555;
+  cursor: not-allowed;
+}
+
+.mac-result {
+  margin-top: 20px;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+.mac-result.success {
+  background-color: rgba(76, 175, 80, 0.2);
+  border: 1px solid #4CAF50;
+  color: #a3e4d7;
+}
+
+.mac-result.error {
+  background-color: rgba(244, 67, 54, 0.2);
+  border: 1px solid #f44336;
+  color: #f5b7b1;
+}
