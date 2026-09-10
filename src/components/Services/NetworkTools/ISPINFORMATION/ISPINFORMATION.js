@@ -16,7 +16,7 @@ const ISPINFORMATION = () => {
                 const ipv6Res = await axios.get('https://api64.ipify.org?format=json').catch(() => null);
 
                 // 2. Apnar Render backend theke ISP ebong location details ana
-                const backendRes = await axios.get('https://networkportfolio-backend.onrender.com/api/ip-info');
+                const backendRes = await axios.get('REACT_APP_BACKEND_URL/api/ip-info');
 
                 if (backendRes.data && backendRes.data.status !== 'fail') {
                     // Check if IPv6 is actually different from IPv4 (since api64 falls back to IPv4 if no IPv6 exists)
