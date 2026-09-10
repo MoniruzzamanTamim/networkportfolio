@@ -19,7 +19,7 @@ A full-stack web application built with **React** and **Node.js (Express)** to l
 
 ## Backend API Documentation
 
-Base URL: `http://localhost:5000`
+Base URL: `${REACT_APP_BACKEND_URL}`
 
 ### 1. Get IP & ISP Information
 - **URL:** `/api/ip-info`

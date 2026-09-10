@@ -17,7 +17,7 @@ export default function MacLookup() {
         setVendor(null);
 
         try {
-            const response = await axios.get(`http://localhost:5000/api/lookup/${mac}`);
+            const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/lookup/${mac}`);
             if (response.data.success) {
                 setVendor(response.data.vendor);
             }
