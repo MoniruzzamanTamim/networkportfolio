@@ -8,46 +8,64 @@ const ISPINFORMATION = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    useEffect(() => {
-        const fetchIpInfo = async () => {
+  useEffect(() => {
+    const fetchIpInfo = async () => {
+        try {
+            setLoading(true);
+
+            // IPv4
+            const ipv4Res = await axios.get(
+                'https://api.ipify.org?format=json'
+            );
+
+            const ipv4 = ipv4Res.data.ip;
+
+            // IPv6
+            let ipv6 = 'Not detected';
+
             try {
-                // 1. Direct ipify theke IPv4 ebong IPv6 fetch kora (Jate browser/network e IPv6 thakle shathe shathe dhora pore)
-                const ipv4Res = await axios.get('https://api.ipify.org?format=json').catch(() => null);
-                const ipv6Res = await axios.get('https://api64.ipify.org?format=json').catch(() => null);
+                const ipv6Res = await axios.get(
+                    'https://api6.ipify.org?format=json'
+                );
 
-                // 2. Apnar Render backend theke ISP ebong location details ana
-                const backendRes = await axios.get('REACT_APP_BACKEND_URL/api/ip-info');
-
-                if (backendRes.data && backendRes.data.status !== 'fail') {
-                    // Check if IPv6 is actually different from IPv4 (since api64 falls back to IPv4 if no IPv6 exists)
-                    const v4 = ipv4Res?.data?.ip || backendRes.data.query;
-                    const v6 = ipv6Res?.data?.ip;
-                    const validIPv6 = (v6 && v6 !== v4 && v6.includes(':')) ? v6 : "Not detected";
-
-                    setIpData({
-                        query: v4,
-                        ipv6: validIPv6,
-                        isp: backendRes.data.isp,
-                        city: backendRes.data.city,
-                        regionName: backendRes.data.regionName,
-                        country: backendRes.data.country,
-                        lat: backendRes.data.lat,
-                        lon: backendRes.data.lon
-                    });
-                } else {
-                    setError("IP details paoya jayni.");
+                if (
+                    ipv6Res.data?.ip &&
+                    ipv6Res.data.ip.includes(':')
+                ) {
+                    ipv6 = ipv6Res.data.ip;
                 }
-            } catch (err) {
-                console.error("Frontend Fetch Error:", err);
-                setError("Backend server-er shathe connect kora jachhe na!");
-            } finally {
-                setLoading(false);
+            } catch (error) {
+                console.log('IPv6 not available');
             }
-        };
 
-        fetchIpInfo();
-    }, []);
+            // IP information
+            const infoRes = await axios.get(
+                `https://ipapi.co/${ipv4}/json/`
+            );
 
+            const info = infoRes.data;
+
+            setIpData({
+                query: ipv4,
+                ipv6: ipv6,
+                isp: info.org || 'Not available',
+                city: info.city || 'Not available',
+                regionName: info.region || 'Not available',
+                country: info.country_name || 'Not available',
+                lat: info.latitude,
+                lon: info.longitude
+            });
+
+        } catch (error) {
+            console.error('IP Information Error:', error);
+            setError('IP details paoya jayni.');
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    fetchIpInfo();
+}, []);
     if (loading) return <div style={{ padding: '30px', color: '#fff', textAlign: 'center' }}>Loading IP Details...</div>;
     if (error) return <div style={{ padding: '30px', color: '#ff6b6b', textAlign: 'center' }}>{error}</div>;
 
