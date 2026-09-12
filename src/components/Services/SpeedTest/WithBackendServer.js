@@ -23,13 +23,6 @@ const initialData = {
 
 
 function SpeedTest() {
-  var s = new Speedtest();
-
-// আপনার Localhost বাদ দিয়ে অন্য কোনো পাবলিক সার্ভারের লিংক
-s.setParameter("getIp_url", "https://backend.librespeed.org/getIP.php");
-s.setParameter("empty_url", "https://backend.librespeed.org/empty.php");
-s.setParameter("garbage_url", "https://backend.librespeed.org/garbage.php");
-
   const speedTestRef = useRef(null);
 
   const [data, setData] =

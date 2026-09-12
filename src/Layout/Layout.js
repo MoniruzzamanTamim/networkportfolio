@@ -1,25 +1,21 @@
 import React from 'react';
-import Navbar from  '../Navbar/Navbar'   // আপনার Navbar কম্পোনেন্টের পাথ
-import Footer from '../Footer/Footer' ; // আপনার Footer কম্পোনেন্টের পাথ
+import Navbar from '../components/Navbar/Navbar';
+import Footer from '../components/Footer/Footer';
 
 const Layout = ({ children }) => {
   return (
     <div className="app-layout" style={styles.layout}>
-      {/* Header / Navbar */}
       <Navbar />
 
-      {/* Main Dynamic Content */}
       <main className="main-content" style={styles.main}>
         {children}
       </main>
 
-      {/* Footer */}
       <Footer />
     </div>
   );
 };
 
-// inline style for layout structuring
 const styles = {
   layout: {
     display: 'flex',

@@ -1,8 +1,10 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./Skills.css";
+import SkillRoadmap from "./SkillRoadmap/SkillRoadmap";
 
 const Skills = () => {
   const sectionRef = useRef(null);
+  const [showSkillRoadmap, setShowSkillRoadmap] = useState(false);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -35,6 +37,7 @@ const Skills = () => {
   }, []);
 
   return (
+    <>
     <section ref={sectionRef} id="skills" className="skills-section">
       <div className="skills-container">
         
@@ -205,6 +208,9 @@ const Skills = () => {
 
       </div>
     </section>
+
+
+    </>
   );
 };
 

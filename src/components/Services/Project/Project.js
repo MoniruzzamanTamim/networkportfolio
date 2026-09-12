@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import './Projects.css';
-import coloDataCenterImage from '../../../Image/colo-data.jpg';
-import Hardware from '../../../Image/Hardware.png';
-import ISP from '../../../Image/ISP.png';
-import ISP2 from '../../../Image/ISP-2.png';
-import Dude from '../../../Image/Dude.jpg';
+import coloDataCenterImage from '../../../assets/Image/colo-data.jpg';
+import Hardware from '../../../assets/Image/Hardware.png';
+import ISP from '../../../assets/Image/ISP.png';
+import ISP2 from '../../../assets/Image/ISP-2.png';
+import Dude from '../../../assets/Image/Dude.jpg';
 import PacketTracerGallery from '../packetTracerProjects/PacketTracerGallery';
 
 const Projects = () => {

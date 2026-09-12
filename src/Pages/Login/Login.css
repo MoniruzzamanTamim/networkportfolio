@@ -1,0 +1,338 @@
+.login-page {
+  --login-ink: #18221f;
+  --login-muted: #71807a;
+  --login-line: #dce5df;
+  --login-accent: #d7f36a;
+  min-height: calc(100vh - 70px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 54px 24px;
+  background: #f4f6f1;
+  color: var(--login-ink);
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+}
+
+.login-shell {
+  display: grid;
+  grid-template-columns: minmax(330px, 0.82fr) minmax(420px, 1.18fr);
+  width: min(1100px, 100%);
+  min-height: 650px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 24px 70px rgba(25, 42, 35, 0.14);
+}
+
+.login-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(34px, 6vw, 76px);
+}
+
+.login-card__eyebrow,
+.showcase-kicker {
+  margin-bottom: 22px;
+  color: #76920b;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.login-card h1 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.7rem, 5vw, 4.5rem);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 0.98;
+}
+
+.login-card h1 span {
+  color: #a3c515;
+}
+
+.login-subtitle {
+  max-width: 310px;
+  margin: 22px 0 42px;
+  color: var(--login-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.login-group {
+  margin-bottom: 24px;
+}
+
+.login-group label,
+.login-label-row span {
+  display: block;
+  margin-bottom: 9px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.login-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.login-label-row span {
+  color: #a1ada6;
+  font-size: 0.65rem;
+  font-weight: 400;
+}
+
+.login-group input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 15px 16px;
+  border: 1px solid var(--login-line);
+  border-radius: 0;
+  background: #fbfcfa;
+  color: var(--login-ink);
+  font: inherit;
+  outline: none;
+  transition: border-color 180ms ease, background 180ms ease;
+}
+
+.login-group input:focus {
+  border-color: #9bb624;
+  background: #fff;
+}
+
+.login-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 17px 18px;
+  border: 0;
+  border-radius: 0;
+  background: var(--login-ink);
+  color: #fff;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 180ms ease, transform 180ms ease;
+}
+
+.login-button:hover {
+  background: #35463e;
+  transform: translateY(-2px);
+}
+
+.login-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.login-button__arrow {
+  color: var(--login-accent);
+  font-size: 1.2rem;
+}
+
+.login-error {
+  margin: 0 0 22px;
+  padding: 11px 13px;
+  border-left: 3px solid #c8523e;
+  background: #fff0ed;
+  color: #a63d2e;
+  font-size: 0.8rem;
+}
+
+.login-footer-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 28px;
+  color: #9aa59f;
+  font-size: 0.68rem;
+  line-height: 1.4;
+}
+
+.login-footer-note__dot,
+.showcase-live i {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #a3c515;
+}
+
+.login-showcase {
+  position: relative;
+  overflow: hidden;
+  padding: 28px;
+  background: #17251f;
+  color: #fff;
+}
+
+.login-showcase::after {
+  position: absolute;
+  right: -150px;
+  bottom: -180px;
+  width: 440px;
+  height: 440px;
+  border: 1px solid rgba(215, 243, 106, 0.22);
+  border-radius: 50%;
+  content: "";
+}
+
+.showcase-topline {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.showcase-live {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--login-accent);
+}
+
+.showcase-image-wrap {
+  position: relative;
+  height: 300px;
+  margin: 24px -28px 0;
+  overflow: hidden;
+}
+
+.showcase-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 28%;
+  opacity: 0.92;
+}
+
+.showcase-image-wrap::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(23, 37, 31, 0.04), #17251f 96%);
+  content: "";
+}
+
+.showcase-image-label {
+  position: absolute;
+  z-index: 1;
+  right: 28px;
+  bottom: 26px;
+  padding: 8px 11px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.showcase-content {
+  position: relative;
+  z-index: 1;
+  margin-top: -2px;
+}
+
+.showcase-kicker {
+  margin: 0 0 14px;
+  color: var(--login-accent);
+}
+
+.showcase-content h2 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 0.98;
+}
+
+.showcase-content h2 em {
+  color: var(--login-accent);
+  font-style: normal;
+}
+
+.showcase-description {
+  max-width: 390px;
+  margin: 18px 0 24px;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.showcase-stats {
+  display: flex;
+  gap: 28px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.showcase-stats div {
+  display: grid;
+  gap: 5px;
+}
+
+.showcase-stats strong {
+  color: #fff;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.showcase-stats span {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 800px) {
+  .login-page {
+    padding: 24px 16px;
+  }
+
+  .login-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .login-card {
+    min-height: 560px;
+  }
+
+  .login-showcase {
+    min-height: 590px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-page {
+    padding: 0;
+  }
+
+  .login-shell {
+    min-height: 100vh;
+  }
+
+  .login-card {
+    padding: 42px 24px;
+  }
+
+  .login-showcase {
+    padding: 24px;
+  }
+
+  .showcase-image-wrap {
+    margin-right: -24px;
+    margin-left: -24px;
+  }
+}

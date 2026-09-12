@@ -138,3 +138,261 @@
 section[id] {
   scroll-margin-top: 80px;
 }
+
+
+
+/* =========================================
+   PREMIUM MENU
+========================================= */
+
+.premium-menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.premium-button {
+  display: flex;
+  align-items: center;
+  padding: 10px 14px;
+  background: transparent !important;
+  color: inherit !important;
+  font-family: inherit;
+  font-size: inherit;
+  text-decoration: none;
+}
+
+.premium-arrow-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 34px;
+  margin-left: -8px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.premium-arrow {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.premium-arrow.rotate {
+  transform: rotate(180deg);
+}
+
+
+/* =========================================
+   PREMIUM DROPDOWN
+========================================= */
+
+.premium-dropdown {
+  position: absolute;
+
+  top: calc(100% + 8px);
+  right: 0;
+
+  min-width: 240px;
+
+  padding: 8px 0;
+
+  background: #111827;
+
+  border: 1px solid #374151;
+
+  border-radius: 10px;
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.35);
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateY(10px);
+
+  transition:
+    opacity 0.2s ease,
+    visibility 0.2s ease,
+    transform 0.2s ease;
+
+  z-index: 9999;
+}
+
+
+/* Desktop hover */
+
+.premium-menu:hover .premium-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+
+/* Keep dropdown open when mobile clicked */
+
+.premium-menu.premium-open .premium-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+
+/* =========================================
+   PREMIUM DROPDOWN LINKS
+========================================= */
+
+.premium-dropdown a {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 12px 16px;
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  white-space: nowrap;
+
+  transition:
+    background 0.2s ease,
+    padding-left 0.2s ease;
+}
+
+.premium-dropdown a:hover {
+  background: #1f2937;
+
+  padding-left: 20px;
+}
+
+
+/* =========================================
+   PREMIUM ICON
+========================================= */
+
+.premium-icon {
+  width: 24px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  font-size: 16px;
+}
+
+
+/* =========================================
+   LOGIN / LOGOUT BUTTON
+========================================= */
+
+.navbar-login-button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 9px 18px;
+
+  border: none;
+
+  border-radius: 6px;
+
+  background: transparent;
+
+  color: inherit;
+
+  font-family: inherit;
+  font-size: inherit;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.navbar-login-button:hover {
+  background: rgba(255, 255, 255, 0.08);
+
+  transform: translateY(-1px);
+}
+
+
+/* Logout */
+
+.logout-button {
+  cursor: pointer;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+  .premium-menu {
+    width: 100%;
+  }
+
+  .premium-button {
+    width: 100%;
+
+    justify-content: space-between;
+
+    padding: 12px 14px;
+  }
+
+  .premium-dropdown {
+    position: static;
+
+    width: 100%;
+
+    min-width: 0;
+
+    margin-top: 5px;
+
+    border-radius: 8px;
+
+    box-shadow: none;
+
+    transform: none;
+  }
+
+  .premium-menu:hover .premium-dropdown {
+    /*
+     * Don't open only because of hover on mobile.
+     * Click/toggle controls it.
+     */
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .premium-menu.premium-open .premium-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  .premium-dropdown a {
+    padding: 12px 20px;
+  }
+
+  .premium-dropdown a:hover {
+    padding-left: 24px;
+  }
+
+  .navbar-login-button {
+    width: 100%;
+    margin-top: 5px;
+  }
+}

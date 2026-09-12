@@ -1,0 +1,166 @@
+
+
+.roadmap-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.roadmap-header h1 {
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  text-align: center;
+  color: #ffffff;
+}
+
+/* মেইন কন্টেইনার এবং মাঝখানের লাইন */
+.roadmap-container {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+/* মাঝখানের লম্বালম্বি দাগ (Vertical Line) */
+.center-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 3px;
+  background-color: #3b82f6;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+/* রোডম্যাপের একেকটি রো বা ধাপ */
+.roadmap-row {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  z-index: 2;
+}
+
+/* বাম ও ডান পাশের সাইড এরিয়া */
+.side-content {
+  width: 34%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.left-side {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.right-side {
+  align-items: flex-start;
+  text-align: left;
+}
+
+/* মাঝখানের হলুদ নোড বা পয়েন্ট */
+.center-node-wrapper {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
+.main-node {
+  background-color: #facc15;
+  color: #000000;
+  padding: 10px 24px;
+  font-weight: bold;
+  border-radius: 6px;
+  border: 2px solid #ca8a04;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+/* বড় বর্ডার বক্সগুলো */
+.section-box {
+  border: 2px solid #334155;
+  border-radius: 12px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #1e293b;
+  width: 100%;
+  max-width: 380px;
+}
+
+.box-title {
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: #cbd5e1;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+/* গ্রিড সিস্টেম */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  width: 100%;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+  width: 100%;
+}
+
+/* ছোট হলুদ বাটন কার্ডগুলো */
+.roadmap-item {
+  background-color: #fde047;
+  color: #000000;
+  text-align: center;
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  border: 1px solid #ca8a04;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.full-width {
+  width: 100%;
+}
+
+
+
+
+/* What-are-Networks */
+
+.main-node.What-are-Networks {
+    /* margin: 88px 0; */
+    position: absolute;
+    top: 424px;
+    left: -35px;
+}
+
+
+.main-node.Network-Devices {
+    position: absolute;
+    top: 746px;
+    left: -17px;
+}
+
+.devider{
+    position: absolute;
+    left: 160px;
+    width: 100px;
+    height: 1px;
+    background: red;
+    top: 24px;
+}
