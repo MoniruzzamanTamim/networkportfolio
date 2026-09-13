@@ -197,7 +197,7 @@ const SkillRoadmap = ({ onClose }) => {
           </div>
 
           {/* Center Main Node */}
-          <div className="center-line" aria-hidden="true" />
+          <div className="center-line" aria-hidden="true" /> 
           <div className="center-node-wrapper">
             {/* --- SECTION 1 --- */}
             <div className="main-node Introduction introduction-group" data-align="introduction">Introduction</div>

@@ -83,6 +83,7 @@ section#skill-roadmap {
     background-color: #3b82f6;
     transform: translateX(-50%);
     z-index: 1;
+    
 }
 
 /* Keep the complete center column above side connectors. */
@@ -94,6 +95,7 @@ section#skill-roadmap {
   pointer-events: none;
   transform: translateX(-50%);
   z-index: 10;
+  display: contents; 
 }
 
 /* Center nodes */
@@ -361,7 +363,7 @@ section#skill-roadmap {
 .high-availability-group,
 .traffic-management-group,
 .introduction-left,
-.Network-device-group,
+/* .Network-device-group, */
 .OSI-MODEL-group,
 .network-design-principles-group,
 .What-are-networks-right,
