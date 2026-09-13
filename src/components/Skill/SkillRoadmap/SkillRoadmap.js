@@ -29,12 +29,14 @@ const SkillRoadmap = ({ onClose }) => {
       });
     };
 
-    alignNodes();
+    // Run alignment after a small timeout to ensure fonts and layout are fully painted on Vercel
+    const timer = setTimeout(alignNodes, 50);
     const observer = new ResizeObserver(alignNodes);
     observer.observe(roadmap);
     window.addEventListener('resize', alignNodes);
 
     return () => {
+      clearTimeout(timer);
       observer.disconnect();
       window.removeEventListener('resize', alignNodes);
     };

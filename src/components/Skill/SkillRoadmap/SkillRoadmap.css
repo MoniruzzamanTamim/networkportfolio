@@ -95,7 +95,6 @@ section#skill-roadmap {
   pointer-events: none;
   transform: translateX(-50%);
   z-index: 10;
-  display: contents; 
 }
 
 /* Center nodes */
