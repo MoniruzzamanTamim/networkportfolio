@@ -418,6 +418,15 @@ const Navbar = () => {
                   </span>
                   Cacti
                 </Link>
+                <Link
+                  to="/premium/skill-map"
+                  onClick={handlePremiumClick}
+                >
+                  <span className="premium-icon">
+                    🗺️
+                  </span>
+                  Skill Map
+                </Link>
 
               </div>
             </div>

@@ -1,20 +1,15 @@
-
-
+/* মেইন কন্টেইনার */
+section#skill-roadmap {
+    padding: 100px 0;
+}
 .roadmap-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
+  padding: 100px 0;
 }
 
-.roadmap-header h1 {
-  font-size: 2.2rem;
-  margin-bottom: 40px;
-  text-align: center;
-  color: #ffffff;
-}
-
-/* মেইন কন্টেইনার এবং মাঝখানের লাইন */
 .roadmap-container {
   position: relative;
   width: 100%;
@@ -24,34 +19,48 @@
   gap: 60px;
 }
 
-/* মাঝখানের লম্বালম্বি দাগ (Vertical Line) */
-.center-line {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  width: 3px;
-  background-color: #3b82f6;
-  transform: translateX(-50%);
-  z-index: 1;
+.roadmap-header h1 {
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  text-align: center;
+  color: #ffffff;
 }
 
-/* রোডম্যাপের একেকটি রো বা ধাপ */
+.roadmap-close {
+  display: block;
+  margin: -24px auto 24px;
+  padding: 8px 14px;
+  border: 1px solid #64748b;
+  border-radius: 6px;
+  background: #1e293b;
+  color: #e2e8f0;
+  cursor: pointer;
+  font: inherit;
+}
+
+.roadmap-close:hover {
+  border-color: #facc15;
+  color: #facc15;
+}
+
+/* Main roadmap row */
 .roadmap-row {
   position: relative;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   width: 100%;
-  z-index: 2;
+  z-index: 3;
 }
 
-/* বাম ও ডান পাশের সাইড এরিয়া */
+/* Left and right content */
 .side-content {
+  position: relative;
   width: 34%;
   display: flex;
   flex-direction: column;
   gap: 15px;
+  z-index: 3;
 }
 
 .left-side {
@@ -64,28 +73,141 @@
   text-align: left;
 }
 
-/* মাঝখানের হলুদ নোড বা পয়েন্ট */
-.center-node-wrapper {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 3;
+/* Center guide line */
+.center-line {
+    position: absolute;
+    top: 82px;
+    bottom: 0;
+    left: 50%;
+    width: 5px;
+    background-color: #3b82f6;
+    transform: translateX(-50%);
+    z-index: 1;
 }
 
+/* Keep the complete center column above side connectors. */
+.center-node-wrapper {
+  position: absolute;
+  inset: 0;
+  left: 50%;
+  width: 260px;
+  pointer-events: none;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+/* Center nodes */
 .main-node {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  align-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  max-width: 260px;
+  text-align: center;
+  transform: translate(-50%, -50%);
   background-color: #facc15;
   color: #000000;
   padding: 10px 24px;
   font-weight: bold;
   border-radius: 6px;
   border: 2px solid #ca8a04;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.5);
   font-size: 1rem;
   white-space: nowrap;
+  z-index: 99;
 }
 
-/* বড় বর্ডার বক্সগুলো */
+.main-node:not([data-align]) {
+  position: static;
+}
+
+/* Legacy per-section offsets */
+.Introduction{
+  top: 150px !important;
+  position: absolute;
+}
+
+.main-node.Building-a-Network {
+    background: #ffffff;
+    position: absolute;
+    top: 28%;
+}
+
+.section-box.tcp-ip-box {
+    margin-top: 108px;
+}
+
+.section-box.network-design-principles.network-design-principles-right {
+    margin-top: 78px;
+}
+
+.section-box.ip-addressing-group.ip-addressing-left {
+    margin-top: 172px;
+}
+
+.main-node.IP-Addressing.ip-addressing-group.IP-Addressing-middle {
+    position: absolute;
+    margin: 0px;
+}
+
+.section-box.switching-group.switching-left {
+    margin-top: 125px;
+}
+
+.main-node.Switching.switching-group.Switching-middle {
+    position: absolute;
+}
+
+
+.main-node.OSI-MODEL.OSI-MODEL-group.OSI-MODEL-middle {
+    position: absolute;
+}
+.main-node.Subnetting.subnetting-group {
+    position: absolute;
+    top: 1980px;
+}
+
+.section-box.routing-group.routing-right {
+    margin-top: 144px;
+}
+
+.main-node.Routing.routing-group.Routing-middle {
+  position: absolute;
+}
+
+.section-box.high-availability-group.high-availability-right {
+    margin-top: 157px;
+}
+
+.main-node.High-Availability.high-availability-group.High-Availability-middle {
+    position: absolute;
+}
+
+.main-node.Tunneling-VPNs.tunneling-vpns-group.Tunneling-VPNs-middle {
+    position: absolute;
+}
+
+.main-node.Traffic-Management.traffic-management-group.Traffic-Management-middle {
+    position: absolute;
+}
+.main-node.TCP-IP-MODEL.TCP-IP-group.TCP-IP-middle {
+    position: absolute;
+}
+
+.main-node.Network-Design-Principles.network-design-principles-group.network-design-principles-middle {
+    position: absolute;
+}
+
+.main-node.Simulators-Tools.Simulators-Tools-group.Simulators-Tools-middle {
+    position: absolute;
+}
+/* Main side panels */
 .section-box {
+  position: relative;
   border: 2px solid #334155;
   border-radius: 12px;
   padding: 15px;
@@ -95,6 +217,7 @@
   background-color: #1e293b;
   width: 100%;
   max-width: 380px;
+  z-index: 3;
 }
 
 .box-title {
@@ -105,7 +228,6 @@
   margin-bottom: 5px;
 }
 
-/* গ্রিড সিস্টেম */
 .grid-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -120,7 +242,6 @@
   width: 100%;
 }
 
-/* ছোট হলুদ বাটন কার্ডগুলো */
 .roadmap-item {
   background-color: #fde047;
   color: #000000;
@@ -135,32 +256,166 @@
 
 .full-width {
   width: 100%;
+  grid-column: 1 / -1;
 }
 
-
-
-
-/* What-are-Networks */
-
-.main-node.What-are-Networks {
-    /* margin: 88px 0; */
-    position: absolute;
-    top: 424px;
-    left: -35px;
+/* Connector lines */
+.introduction-left::after,
+.What-are-networks-right::before ,
+.Network-device-right::before ,
+.OSI-MODEL-right::before ,
+.TCP-IP-left::after ,
+.network-design-principles-left::after ,
+.network-design-principles-right::before, 
+.ip-addressing-left::after,
+.ip-addressing-right::before,
+.subnetting-right::before,
+.routing-left::after,
+.routing-right::before,
+.switching-left::after,
+.tunneling-vpns-left::after,
+.high-availability-right::before,
+.traffic-management-left::after ,
+.Simulators-Tools-right::before {
+  position: absolute;
+  top: 50%;
+  width: 150px;
+  border-top: 4px dotted #3b82f6;
+  content: "";
+  z-index: 0;
+  pointer-events: none;
+  overflow: visible;
 }
 
-
-.main-node.Network-Devices {
-    position: absolute;
-    top: 746px;
-    left: -17px;
+.introduction-left::after {
+    top: 15%;
+    right: -153px;
 }
 
-.devider{
-    position: absolute;
-    left: 160px;
-    width: 100px;
-    height: 1px;
-    background: red;
-    top: 24px;
+.What-are-networks-right::before{ 
+   
+    left: -150px;
+}
+.Network-device-right::before{ 
+   
+    left: -150px;
+}
+.OSI-MODEL-right::before{ 
+   
+    left: -150px;
+}
+.TCP-IP-left::after{ 
+    right: -150px;
+}
+.network-design-principles-left::after { right: -150px; }
+.network-design-principles-right::before{ left: -150px; }
+
+.ip-addressing-left::after { right: -150px; }
+.ip-addressing-right::before { left: -150px; }
+
+.subnetting-right::before,
+.routing-right::before,
+.high-availability-right::before {
+  left: -150px;
+}
+.Simulators-Tools-right::before {
+  left: -150px;
+}
+
+.switching-left::after,
+.tunneling-vpns-left::after,
+.traffic-management-left::after {
+  right: -150px;
+}
+
+.main-node.ip-addressing-group {
+  z-index: 4;
+}
+
+.main-node.IP-Addressing {
+  margin-top: 12px;
+}
+
+.nat-pat-title {
+  margin-bottom: 0;
+}
+
+/* Fixed Dot Separator */
+.nat-pat-separator {
+    width: 6px;
+    height: 40px;
+    background-image: radial-gradient(#3b82f6 40%, transparent 40%);
+    background-size: 6px 10px;
+    background-repeat: repeat-y;
+    border: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ip-addressing-group,
+.subnetting-group,
+.routing-group,
+.switching-group,
+.tunneling-vpns-group,
+.high-availability-group,
+.traffic-management-group,
+.introduction-left,
+.Network-device-group,
+.OSI-MODEL-group,
+.network-design-principles-group,
+.What-are-networks-right,
+.Simulators-Tools-group,
+.TCP-IP-group {
+  position: relative;
+}
+
+@media (max-width: 800px) {
+  .roadmap-wrapper {
+    padding: 24px 16px;
+  }
+
+  .roadmap-container {
+    gap: 24px;
+  }
+
+  .center-line,
+  .center-node-wrapper {
+    display: none;
+  }
+
+  .roadmap-row {
+    display: grid;
+    gap: 24px;
+  }
+
+  .side-content {
+    width: 100%;
+    align-items: stretch;
+    text-align: left;
+  }
+
+  .section-box {
+    max-width: none;
+  }
+
+  .ip-addressing-left::after,
+  .ip-addressing-right::before,
+  .subnetting-right::before,
+  .routing-left::after,
+  .routing-right::before,
+  .switching-left::after,
+  .tunneling-vpns-left::after,
+  .high-availability-right::before,
+  .traffic-management-left::after {
+    display: none;
+  }
+
+  .left-side {
+    order: 1;
+  }
+
+  .right-side {
+    order: 2;
+  }
 }

@@ -9,6 +9,7 @@ import SpeedTestPage from "../../components/Services/SpeedTest/SpeedTest";
 import BDIXSpeedTestPage from "../../components/Services/SpeedTest/WithBackendServer";
 import SNMPPage from "../../Premium-Component/SNMPServer/SNMPServer";
 import CactiPage from "../../Premium-Component/CactiInstallation/CactiInstallation";
+import SkillMapPage from "../../components/Skill/SkillRoadmap/SkillRoadmap";
 
 const ProtectedPage = ({ children }) => (
   <ProtectedRoute>{children}</ProtectedRoute>
@@ -69,6 +70,14 @@ const PrivateRoutes = () => (
       element={
         <ProtectedPage>
           <CactiPage />
+        </ProtectedPage>
+      }
+    />
+    <Route
+      path="/premium/skill-map"
+      element={
+        <ProtectedPage>
+          <SkillMapPage />
         </ProtectedPage>
       }
     />

@@ -33,9 +33,9 @@ const Home = () => {
       <section id="contact">
         <Contact />
       </section>
-      <section id="skill-roadmap">
+      {/* <section id="skill-roadmap">
         <SkillRoadmap />
-      </section>
+      </section> */}
     </>
   );
 };

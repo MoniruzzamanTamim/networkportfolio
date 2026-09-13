@@ -206,9 +206,31 @@ const Skills = () => {
           </div>
         </div>
 
+        <div className="skill-map-action animate-on-scroll" style={{ "--i": 8 }}>
+          <button
+            type="button"
+            className="skill-map-button"
+            onClick={() => setShowSkillRoadmap(true)}
+          >
+            <span className="skill-map-button-icon" aria-hidden="true">+</span>
+            <span>Show Skill Map</span>
+            <span className="skill-map-button-arrow" aria-hidden="true">-&gt;</span>
+          </button>
+        </div>
+
+
+                
+
       </div>
     </section>
 
+      {showSkillRoadmap && (
+        <div className="skill-map-modal" role="dialog" aria-modal="true" aria-label="Network skill map">
+          <div className="skill-map-modal__content">
+            <SkillRoadmap onClose={() => setShowSkillRoadmap(false)} />
+          </div>
+        </div>
+      )}
 
     </>
   );

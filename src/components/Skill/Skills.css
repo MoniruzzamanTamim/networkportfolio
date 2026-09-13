@@ -267,6 +267,96 @@
   border-color: #22d3ee;
 }
 
+/* Centered action that opens the interactive roadmap. */
+.skill-map-action {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.skill-map-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  min-width: 220px;
+  padding: 14px 20px;
+  border: 1px solid rgba(34, 211, 238, 0.55);
+  border-radius: 8px;
+  background: #050816;
+  color: #f8fafc;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 180ms ease, border-color 180ms ease, color 180ms ease;
+}
+
+.skill-map-button:hover {
+  border-color: #22d3ee;
+  color: #22d3ee;
+  transform: translateY(-2px);
+}
+
+.skill-map-button-icon,
+.skill-map-button-arrow {
+  color: #22d3ee;
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+.skill-map-modal {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  overflow: auto;
+  padding: 40px 20px;
+  background: rgba(2, 6, 23, 0.86);
+  backdrop-filter: blur(6px);
+  animation: skill-map-fade-in 220ms ease-out both;
+}
+
+.skill-map-modal__content {
+  width: min(1180px, 100%);
+  min-height: calc(100vh - 80px);
+  margin: 0 auto;
+  padding: 24px;
+  border: 1px solid rgba(34, 211, 238, 0.25);
+  border-radius: 12px;
+  background: #020617;
+  transform-origin: top center;
+  animation: skill-map-panel-in 280ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  padding: 100px 40px 40px;
+}
+
+@keyframes skill-map-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes skill-map-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skill-map-modal,
+  .skill-map-modal__content {
+    animation: none;
+  }
+}
+
 /* Certificate Icon */
 
 .cert-icon {
