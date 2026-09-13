@@ -125,6 +125,86 @@ section#skill-roadmap {
   position: static;
 }
 
+/* Legacy per-section offsets */
+.Introduction{
+  top: 150px !important;
+  position: absolute;
+}
+
+.main-node.Building-a-Network {
+    background: #ffffff;
+    position: absolute;
+    top: 28%;
+}
+
+.section-box.tcp-ip-box {
+    margin-top: 108px;
+}
+
+.section-box.network-design-principles.network-design-principles-right {
+    margin-top: 78px;
+}
+
+.section-box.ip-addressing-group.ip-addressing-left {
+    margin-top: 172px;
+}
+
+.main-node.IP-Addressing.ip-addressing-group.IP-Addressing-middle {
+    position: absolute;
+    margin: 0px;
+}
+
+.section-box.switching-group.switching-left {
+    margin-top: 125px;
+}
+
+.main-node.Switching.switching-group.Switching-middle {
+    position: absolute;
+}
+
+
+.main-node.OSI-MODEL.OSI-MODEL-group.OSI-MODEL-middle {
+    position: absolute;
+}
+.main-node.Subnetting.subnetting-group {
+    position: absolute;
+    top: 1980px;
+}
+
+.section-box.routing-group.routing-right {
+    margin-top: 144px;
+}
+
+.main-node.Routing.routing-group.Routing-middle {
+  position: absolute;
+}
+
+.section-box.high-availability-group.high-availability-right {
+    margin-top: 157px;
+}
+
+.main-node.High-Availability.high-availability-group.High-Availability-middle {
+    position: absolute;
+}
+
+.main-node.Tunneling-VPNs.tunneling-vpns-group.Tunneling-VPNs-middle {
+    position: absolute;
+}
+
+.main-node.Traffic-Management.traffic-management-group.Traffic-Management-middle {
+    position: absolute;
+}
+.main-node.TCP-IP-MODEL.TCP-IP-group.TCP-IP-middle {
+    position: absolute;
+}
+
+.main-node.Network-Design-Principles.network-design-principles-group.network-design-principles-middle {
+    position: absolute;
+}
+
+.main-node.Simulators-Tools.Simulators-Tools-group.Simulators-Tools-middle {
+    position: absolute;
+}
 /* Main side panels */
 .section-box {
   position: relative;
@@ -179,13 +259,13 @@ section#skill-roadmap {
   grid-column: 1 / -1;
 }
 
-/* Connector lines - Shobgulor dotted lines thik kora holo */
+/* Connector lines */
 .introduction-left::after,
-.What-are-networks-right::before,
-.Network-device-right::before,
-.OSI-MODEL-right::before,
-.TCP-IP-left::after,
-.network-design-principles-left::after,
+.What-are-networks-right::before ,
+.Network-device-right::before ,
+.OSI-MODEL-right::before ,
+.TCP-IP-left::after ,
+.network-design-principles-left::after ,
 .network-design-principles-right::before, 
 .ip-addressing-left::after,
 .ip-addressing-right::before,
@@ -195,7 +275,7 @@ section#skill-roadmap {
 .switching-left::after,
 .tunneling-vpns-left::after,
 .high-availability-right::before,
-.traffic-management-left::after,
+.traffic-management-left::after ,
 .Simulators-Tools-right::before {
   position: absolute;
   top: 50%;
@@ -207,23 +287,54 @@ section#skill-roadmap {
   overflow: visible;
 }
 
-.introduction-left::after { right: -150px; }
-.What-are-networks-right::before { left: -150px; }
-.Network-device-right::before { left: -150px; }
-.OSI-MODEL-right::before { left: -150px; }
-.TCP-IP-left::after { right: -150px; }
+.introduction-left::after {
+    top: 15%;
+    right: -153px;
+}
+
+.What-are-networks-right::before{ 
+   
+    left: -150px;
+}
+.Network-device-right::before{ 
+   
+    left: -150px;
+}
+.OSI-MODEL-right::before{ 
+   
+    left: -150px;
+}
+.TCP-IP-left::after{ 
+    right: -150px;
+}
 .network-design-principles-left::after { right: -150px; }
-.network-design-principles-right::before { left: -150px; }
+.network-design-principles-right::before{ left: -150px; }
+
 .ip-addressing-left::after { right: -150px; }
 .ip-addressing-right::before { left: -150px; }
-.subnetting-right::before { left: -150px; }
-.routing-left::after { right: -150px; }
-.routing-right::before { left: -150px; }
-.switching-left::after { right: -150px; }
-.tunneling-vpns-left::after { right: -150px; }
-.high-availability-right::before { left: -150px; }
-.traffic-management-left::after { right: -150px; }
-.Simulators-Tools-right::before { left: -150px; }
+
+.subnetting-right::before,
+.routing-right::before,
+.high-availability-right::before {
+  left: -150px;
+}
+.Simulators-Tools-right::before {
+  left: -150px;
+}
+
+.switching-left::after,
+.tunneling-vpns-left::after,
+.traffic-management-left::after {
+  right: -150px;
+}
+
+.main-node.ip-addressing-group {
+  z-index: 4;
+}
+
+.main-node.IP-Addressing {
+  margin-top: 12px;
+}
 
 .nat-pat-title {
   margin-bottom: 0;
@@ -288,13 +399,6 @@ section#skill-roadmap {
     max-width: none;
   }
 
-  .introduction-left::after,
-  .What-are-networks-right::before,
-  .Network-device-right::before,
-  .OSI-MODEL-right::before,
-  .TCP-IP-left::after,
-  .network-design-principles-left::after,
-  .network-design-principles-right::before,
   .ip-addressing-left::after,
   .ip-addressing-right::before,
   .subnetting-right::before,
@@ -303,8 +407,7 @@ section#skill-roadmap {
   .switching-left::after,
   .tunneling-vpns-left::after,
   .high-availability-right::before,
-  .traffic-management-left::after,
-  .Simulators-Tools-right::before {
+  .traffic-management-left::after {
     display: none;
   }
 
