@@ -55,9 +55,8 @@ const SkillRoadmap = ({ onClose }) => {
 
       <div className="roadmap-container">
   
-
-       
         <div className="roadmap-row">
+          
           {/* Left Side Box */}
           <div className="side-content left-side">
 
@@ -152,9 +151,8 @@ const SkillRoadmap = ({ onClose }) => {
                 <div className="roadmap-item">Trunking (802.1Q)</div>
                 <div className="roadmap-item">STP &amp; RSTP</div>
                 <div className="roadmap-item">Port Security</div>
-                <div className="roadmap-item ">Inter-VLAN Routing</div>
+                <div className="roadmap-item">Inter-VLAN Routing</div>
                 <div className="roadmap-item full-width">EtherChannel / Link Aggregation</div>
-                
               </div>
             </div>
 
@@ -196,56 +194,61 @@ const SkillRoadmap = ({ onClose }) => {
               </div>
             </div>
 
-           
-
           </div>
 
           {/* Center Main Node */}
-
-       
-              <div className="center-line" aria-hidden="true" />
-              <div className="center-node-wrapper">
-             {/* --- SECTION 1 --- */}
+          <div className="center-line" aria-hidden="true" />
+          <div className="center-node-wrapper">
+            {/* --- SECTION 1 --- */}
             <div className="main-node Introduction introduction-group" data-align="introduction">Introduction</div>
-             {/* --- SECTION 2 --- */}
-             <div className="main-node What-are-Networks What-are-networks-group" data-align="network-types">What are Networks?</div>
-             {/* --- SECTION 3 --- */}
-             <div className="main-node Network-Devices Network-device-group Network-device-middle" data-align="network-devices">Network Devices
-                <div className="devider"></div>
-             </div>
-             {/* --- SECTION 4 --- */}
-             <div className="main-node Network-Design-Principles network-design-principles-group network-design-principles-middle" data-align="network-design">Network Design Principles</div>
-             {/* --- SECTION 5 --- */}
+            
+            {/* --- SECTION 2 --- */}
+            <div className="main-node What-are-Networks What-are-networks-group" data-align="network-types">What are Networks?</div>
+            
+            {/* --- SECTION 3 --- */}
+            <div className="main-node Network-Devices Network-device-group Network-device-middle" data-align="network-devices">
+              Network Devices
+              <div className="devider"></div>
+            </div>
+            
+            {/* --- SECTION 4 --- */}
+            <div className="main-node Network-Design-Principles network-design-principles-group network-design-principles-middle" data-align="network-design">Network Design Principles</div>
+            
+            {/* --- SECTION 5 --- */}
             <div className="main-node OSI-MODEL OSI-MODEL-group OSI-MODEL-middle" data-align="osi">OSI MODEL</div>
-             {/* --- SECTION 6 --- */}
-             
-             <div className="main-node TCP-IP-MODEL TCP-IP-group TCP-IP-middle" data-align="tcp-ip">TCP/IP Model</div>
-             {/* --- SECTION 7 --- */}
-             
-             <div className="main-node Simulators-Tools Simulators-Tools-group Simulators-Tools-middle" data-align="simulators">Simulators &amp; Tools</div>
+            
+            {/* --- SECTION 6 --- */}
+            <div className="main-node TCP-IP-MODEL TCP-IP-group TCP-IP-middle" data-align="tcp-ip">TCP/IP Model</div>
+            
+            {/* --- SECTION 7 --- */}
+            <div className="main-node Simulators-Tools Simulators-Tools-group Simulators-Tools-middle" data-align="simulators">Simulators &amp; Tools</div>
 
-             {/* --- SECTION 8 --- */}
-              {/* <div className="main-node Building-a-Network">Building a Network</div> */}
-             {/* --- IP ADDRESSING: LAST MIDDLE SECTION --- */}
-             <div className="main-node IP-Addressing ip-addressing-group IP-Addressing-middle" data-align="ip-addressing">IP Addressing</div>
-             {/* --- SUBNETTING: MIDDLE --- */}
-             <div className="main-node Subnetting subnetting-group" data-align="subnetting">Subnetting</div>
-             {/* --- SWITCHING: MIDDLE --- */}
-             <div className="main-node Switching switching-group Switching-middle" data-align="switching">Switching</div>
-             {/* --- ROUTING: MIDDLE --- */}
-             <div className="main-node Routing routing-group Routing-middle" data-align="routing">Routing</div>
-             {/* --- TUNNELING & VPNS: MIDDLE --- */}
-             <div className="main-node Tunneling-VPNs tunneling-vpns-group Tunneling-VPNs-middle" data-align="tunneling-vpns">Tunneling &amp; VPNs</div>
-             {/* --- HIGH AVAILABILITY: MIDDLE --- */}
-             <div className="main-node High-Availability high-availability-group High-Availability-middle" data-align="high-availability">High Availability</div>
-             {/* --- TRAFFIC MANAGEMENT: MIDDLE --- */}
-             <div className="main-node Traffic-Management traffic-management-group Traffic-Management-middle" data-align="traffic-management">Traffic Management</div>
-         
+            {/* --- IP ADDRESSING --- */}
+            <div className="main-node IP-Addressing ip-addressing-group IP-Addressing-middle" data-align="ip-addressing">IP Addressing</div>
+            
+            {/* --- SUBNETTING --- */}
+            <div className="main-node Subnetting subnetting-group" data-align="subnetting">Subnetting</div>
+            
+            {/* --- SWITCHING --- */}
+            <div className="main-node Switching switching-group Switching-middle" data-align="switching">Switching</div>
+            
+            {/* --- ROUTING --- */}
+            <div className="main-node Routing routing-group Routing-middle" data-align="routing">Routing</div>
+            
+            {/* --- TUNNELING & VPNS --- */}
+            <div className="main-node Tunneling-VPNs tunneling-vpns-group Tunneling-VPNs-middle" data-align="tunneling-vpns">Tunneling &amp; VPNs</div>
+            
+            {/* --- HIGH AVAILABILITY --- */}
+            <div className="main-node High-Availability high-availability-group High-Availability-middle" data-align="high-availability">High Availability</div>
+            
+            {/* --- TRAFFIC MANAGEMENT --- */}
+            <div className="main-node Traffic-Management traffic-management-group Traffic-Management-middle" data-align="traffic-management">Traffic Management</div>
           </div>
 
           {/* Right Side Box */}
           <div className="side-content right-side">
-             {/* --- SECTION 1 --- */}
+            
+            {/* --- CERTIFICATIONS SECTION --- */}
             <div className="section-box roadmap-section certifications-section" style={{border: 'none', background: 'transparent', padding: 0}}>
               <h3 className="box-title">Certifications</h3>
               <div className="grid-2">
@@ -257,9 +260,8 @@ const SkillRoadmap = ({ onClose }) => {
               <div className="roadmap-item full-width">Cloud Certifications</div>
             </div>
 
-
-         {/* --- SECTION 2: NETWORK TYPES --- */}
-             <div className="section-box roadmap-section What-are-networks-group What-are-networks-right" data-align="network-types">
+            {/* --- SECTION 2: NETWORK TYPES --- */}
+            <div className="section-box roadmap-section What-are-networks-group What-are-networks-right" data-align="network-types">
               <h3 className="box-title Network-Types">Network Types</h3>
               <div className="grid-2">
                 <div className="roadmap-item">LAN</div>
@@ -274,8 +276,9 @@ const SkillRoadmap = ({ onClose }) => {
               <div className="roadmap-item full-width">Client-Server Network</div>
               <div className="roadmap-item full-width">Peer-to-Peer Network</div>
             </div>
-         {/* --- SECTION 3 --- */}
-             <div className="section-box roadmap-section Network-device-group Network-device-right" data-align="network-devices">
+
+            {/* --- SECTION 3: NETWORK DEVICES --- */}
+            <div className="section-box roadmap-section Network-device-group Network-device-right" data-align="network-devices">
               <h3 className="box-title Network-Devices">Network Devices</h3>
               <div className="grid-2">
                 <div className="roadmap-item">Router</div>
@@ -285,11 +288,12 @@ const SkillRoadmap = ({ onClose }) => {
                 <div className="roadmap-item">PAN</div>
                 <div className="roadmap-item">Modem</div>
               </div>
-                <div className="roadmap-item full-width">Access Point</div>
-                <div className="roadmap-item full-width">Firewall</div>
+              <div className="roadmap-item full-width">Access Point</div>
+              <div className="roadmap-item full-width">Firewall</div>
             </div>
-           {/* --- SECTION 4 --- */}
-         <div className="section-box roadmap-section osi-layer-box OSI-MODEL-group OSI-MODEL-right" data-align="osi">
+
+            {/* --- SECTION 4: OSI MODEL --- */}
+            <div className="section-box roadmap-section osi-layer-box OSI-MODEL-group OSI-MODEL-right" data-align="osi">
               <h3 className="box-title">7 Layers</h3>
               <div className="grid-2">
                 <div className="roadmap-item full-width">Physical</div>
@@ -312,15 +316,14 @@ const SkillRoadmap = ({ onClose }) => {
             <div className="section-box roadmap-section simulators-tools-box Simulators-Tools-group Simulators-Tools-right" data-align="simulators">
               <h3 className="box-title">Simulators &amp; Tools</h3>
               <div className="grid-2">
-                
                 <div className="roadmap-item full-width">Cisco Packet Tracer</div>
-                <div className="roadmap-item full-width">VMWARE </div>
-                <div className="roadmap-item ">EVE-NG</div>
+                <div className="roadmap-item full-width">VMWARE</div>
+                <div className="roadmap-item">EVE-NG</div>
                 <div className="roadmap-item">GNS3</div>
               </div>
             </div>
 
-            {/* --- IP ADDRESSING: LAST RIGHT SECTION --- */}
+            {/* --- IP ADDRESSING --- */}
             <div className="section-box roadmap-section ip-addressing-group ip-addressing-right" data-align="ip-addressing">
               <h3 className="box-title nat-pat-title">NAT vs PAT</h3>
               <div className="nat-pat-separator" aria-hidden="true" />
@@ -331,7 +334,7 @@ const SkillRoadmap = ({ onClose }) => {
               </div>
             </div>
 
-            {/* --- SUBNETTING: RIGHT SIDE --- */}
+            {/* --- SUBNETTING --- */}
             <div className="section-box roadmap-section subnetting-group subnetting-right" data-align="subnetting">
               <h3 className="box-title">Subnetting</h3>
               <div className="grid-2">
@@ -344,7 +347,7 @@ const SkillRoadmap = ({ onClose }) => {
               </div>
             </div>
 
-            {/* --- ROUTING: RIGHT SIDE --- */}
+            {/* --- ROUTING --- */}
             <div className="section-box roadmap-section routing-group routing-right" data-align="routing">
               <h3 className="box-title">Routing Concepts</h3>
               <div className="grid-2">
@@ -355,7 +358,7 @@ const SkillRoadmap = ({ onClose }) => {
               </div>
             </div>
 
-            {/* --- HIGH AVAILABILITY: RIGHT SIDE --- */}
+            {/* --- HIGH AVAILABILITY --- */}
             <div className="section-box roadmap-section high-availability-group high-availability-right" data-align="high-availability">
               <h3 className="box-title">Redundancy &amp; Load Balancing</h3>
               <div className="grid-2">
@@ -370,11 +373,7 @@ const SkillRoadmap = ({ onClose }) => {
             
           </div>
           
-          
         </div>
-
-
-     
 
       </div>
     </div>
